@@ -6,8 +6,7 @@ DEPENDS += " libxml2 boost python libtool"
 LICENSE = "LGPLv2+"
 LIC_FILES_CHKSUM = "file://COPYING;md5=e6a600fd5e1d9cbde2d983680233ad02"
 
-SRCREV= "d22debb66a35d37461faab6e732f58c0b8f90d7a"
-#SRC_URI = "git:///home/treww/work/freeopcua"
+SRCREV= "420305bbb904e7f00883dc067f2b3d2cdde2b9d1"
 SRC_URI = "git://github.com/treww/freeopcua"
 S = "${WORKDIR}/git"
 PR = "r0"
@@ -21,7 +20,7 @@ inherit autotools update-rc.d
 
 FILES_${PN} += "/etc/init.d/freeopcua"
 
-EXTRA_OECONF = " --disable-python-bindings"
+EXTRA_OECONF = " --disable-python-bindings --disable-unit-tests"
 
 do_install_append () {
   chmod a+x ${D}${sysconfdir}/init.d/opcuaserver
